@@ -29,6 +29,16 @@ namespace LegacyApp {
                 LastName = lastName
             };
 
+            
+            if (!IsUserImportantAndHasCreditLimit(client, user)) return false;
+
+            
+            UserDataAccess.AddUser(user);
+            return true;
+        }
+
+        private static bool IsUserImportantAndHasCreditLimit(Client client, User user)
+        {
             if (client.Type == "VeryImportantClient") {
                 user.HasCreditLimit = false;
             } else if (client.Type == "ImportantClient") {
@@ -49,8 +59,8 @@ namespace LegacyApp {
 
             if (user.HasCreditLimit && user.CreditLimit < 500)
                 return false;
-
-            UserDataAccess.AddUser(user);
+            
+            
             return true;
         }
     }

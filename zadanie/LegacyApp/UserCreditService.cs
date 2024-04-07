@@ -9,11 +9,13 @@ namespace LegacyApp {
         /// </summary>
         private readonly Dictionary<string, int> _database =
             new Dictionary<string, int>() {
+                
                 {"Kowalski", 200},
                 {"Malewski", 20000},
                 {"Smith", 10000},
                 {"Doe", 3000},
                 {"Kwiatkowski", 1000}
+                
             };
         
         public void Dispose() {
@@ -25,6 +27,7 @@ namespace LegacyApp {
         /// </summary>
         /// <returns>Client's credit limit</returns>
         internal int GetCreditLimit(string lastName, DateTime dateOfBirth) {
+            
             int randomWaitingTime = new Random().Next(3000);
             Thread.Sleep(randomWaitingTime);
 
@@ -32,6 +35,7 @@ namespace LegacyApp {
                 return _database[lastName];
 
             throw new ArgumentException($"Client {lastName} does not exist");
+            
         }
     }
 }
