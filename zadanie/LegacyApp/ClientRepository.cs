@@ -18,9 +18,6 @@ namespace LegacyApp {
             
         };
         
-        public ClientRepository() {
-            
-        }
 
         /// <summary>
         /// Simulating fetching a client from remote database
